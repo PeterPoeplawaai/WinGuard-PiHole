@@ -55,12 +55,12 @@ Follow steps in wizard (choose WireGaurd instead of OpenVPN!)<br>
 Now run 'pivpn add' to create the client profiles<br>
 Run 'pivpn help' to see what else you can do!<br>
 <br>
-<u>Profile for iPhone example</u><br>
+<u>Profile for iPhone example:</u><br>
 pivpn add iphone-vpn<br>
 pivpn -qr iphone-vpn<br>
-Scan QR code with WireGuard app on iPhone
+Scan QR code with the WireGuard app on your iPhone<br>
 <br>
-<u>Profile for laptop example</u><br>
+<u>Profile for laptop example:</u><br>
 pivpn add laptop-vpn<br>
 cat ~/configs/laptop-vpn.conf<br>
 Highlight and copy the entire output text from the terminal (starting from [Interface] down to the last line)<br>

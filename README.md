@@ -7,37 +7,37 @@ The webpages for PiHole, Netdata and n8n are only reachable on connected VPN cli
 
 
 
-**# Update Ubuntu first!**
+**Update Ubuntu first!**
 sudo apt update && sudo apt upgrade -y
 
 
-# Step 1: Add Internal Ubuntu Firewall Rule (NOTE: open this port in Oracle Cloud security list too!)
+**Step 1: Add Internal Ubuntu Firewall Rule (NOTE: open this port in Oracle Cloud security list too!)**
 sudo iptables -I INPUT 2 -p udp --dport 51820 -j ACCEPT
 sudo netfilter-persistent save (Make your iptables rules persistent across reboots)
 
 
-**# Step 2: Install Pi-Hole**
+**Step 2: Install Pi-Hole**
 sudo curl -sSL https://install.pi-hole.net | bash
-### Make Pi-Hole admin page reachable for connected VPN clients:
+Make Pi-Hole admin page reachable for connected VPN clients:
 sudo iptables -I INPUT 8 -i wg0 -p tcp --dport 80 -j ACCEPT (NOTE: must be above REJECT rule in INPUT section! -> check with: sudo iptables -L -v -n)
 sudo iptables -I INPUT 8 -i wg0 -p tcp --dport 443 -j ACCEPT (NOTE: must be above REJECT rule in INPUT section! -> check with: sudo iptables -L -v -n)
 
-<u>### Pi-Hole handy CLI commands:</u>
+<u>Pi-Hole handy CLI commands:</u>
 sudo pihole enable
 sudo pihole -g (of pihole -up) = update pi-hole and blacklists
 sudo pihole -t = live logs
 
-<u>### Pi-Hole extra blocklists:</u>
-# from https://blog.burstbytes.com.au/best-2026-pi-hole-blocklists-and-how-to-install-them/#How_to_install_a_Pi-hole_blocklist:
+<u>Pi-Hole extra blocklists:</u>
+from https://blog.burstbytes.com.au/best-2026-pi-hole-blocklists-and-how-to-install-them/#How_to_install_a_Pi-hole_blocklist:
 https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/multi.txt
 https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/popupads.txt
 https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/tif.txt
 https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/fake.txt
 
-# from https://github.com/zachlagden/Pi-hole-Optimized-Blocklists:
+from https://github.com/zachlagden/Pi-hole-Optimized-Blocklists:
 https://media.githubusercontent.com/media/zachlagden/Pi-hole-Optimized-Blocklists/main/lists/all_domains.txt
 
-# from ex-colleague Paulus1337 (thanks Paul! ;-)):
+from ex-colleague Paulus1337 (thanks Paul! ;-)):
 https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
 http://sysctl.org/cameleon/hosts
 https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt
@@ -50,17 +50,17 @@ https://big.oisd.nl
 https://raw.githubusercontent.com/dashingdon/blocklists/refs/heads/master/pihole_addonblacklist.txt
 
 
-__# Step 3: Install WireGuard with PiVPN (Debian/Ubuntu only!!) ((or WG-Easy (=WireGuard + management GUI met Docker)???)__
+Step 3: Install WireGuard with PiVPN (Debian/Ubuntu only!!) ((or WG-Easy (=WireGuard + management GUI met Docker)???)
 sudo curl -L https://install.pivpn.io | bash
-## PiVPN einde wizard
+Follow steps in wizard (choose WireGaurd instead of OpenVPN!)
 Now run 'pivpn add' to create the client profiles
 Run 'pivpn help' to see what else you can do!
 
-<u>## Profile for iPhone</u>
+<u>Profile for iPhone</u>
 pivpn add
 pivpn -qr iphone-vpn
 
-<u>## Profile for laptop</u>
+<u>Profile for laptop</u>
 pivpn add
 cat ~/configs/laptop-vpn.conf
 Highlight and copy the entire output text from the terminal (starting from [Interface] down to the last line).
@@ -69,12 +69,12 @@ Paste the text into Notepad.
 Save the file as wg0.conf
 
 
-__# Step 4: Install Netdata (Real-Time Server Performance Monitoring)__
+Step 4: Install Netdata (Real-Time Server Performance Monitoring)
 ## Netdata provides an incredible, low-overhead real-time monitoring dashboard that will give you instant visibility into your network traffic
 sudo iptables -I INPUT 8 -i wg0 -p tcp --dport 19999 -j ACCEPT (NOTE: must be above REJECT rule in INPUT section! -> check with: sudo iptables -L -v -n)
 
 
-__# Step 5: Install n8n (Workflow Automation)__
+Step 5: Install n8n (Workflow Automation)
 mkdir -p ~/n8n
 cd ~/n8n
 nano docker-compose.yml

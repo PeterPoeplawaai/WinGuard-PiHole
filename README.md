@@ -16,7 +16,7 @@ sudo iptables -I INPUT 2 -p udp --dport 51820 -j ACCEPT
 sudo netfilter-persistent save (Make your iptables rules persistent across reboots)
 
 
-__# Step 2: Install Pi-Hole__
+**# Step 2: Install Pi-Hole**
 sudo curl -sSL https://install.pi-hole.net | bash
 ### Make Pi-Hole admin page reachable for connected VPN clients:
 sudo iptables -I INPUT 8 -i wg0 -p tcp --dport 80 -j ACCEPT (NOTE: must be above REJECT rule in INPUT section! -> check with: sudo iptables -L -v -n)

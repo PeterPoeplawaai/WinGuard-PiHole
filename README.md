@@ -1,4 +1,4 @@
-How to setup WireGuard with PiHole and Netdata for statistics (and n8n as a bonus :))
+How to setup WireGuard with Pi-hole and Netdata for statistics (and n8n as a bonus :))
 
 This runs completely free of charge on an Ubuntu 24.04 instance on Oracle Cloud Free Tier (shape VM.Standard.A1.Flex: 1 OCPU ; 6 GB memory ; 10 TB p/m free outbound internet traffic)
 
@@ -15,14 +15,14 @@ sudo iptables -I INPUT 2 -p udp --dport 51820 -j ACCEPT<br>
 sudo netfilter-persistent save (Make your iptables rules persistent across reboots)<br>
 <br>
 <br>
-<h2>Step 2: Install Pi-Hole</h2>
+<h2>Step 2: Install Pi-hole</h2>
 sudo curl -sSL https://install.pi-hole.net | bash<br>
 <br>
 Make Pi-Hole admin page reachable for connected VPN clients:<br>
 sudo iptables -I INPUT 3 -i wg0 -p tcp --dport 80 -j ACCEPT <i>(NOTE:must be above REJECT rule in INPUT section!->check with: sudo iptables -L -v -n)</i><br>
 sudo iptables -I INPUT 4 -i wg0 -p tcp --dport 443 -j ACCEPT <i>(NOTE:must be above REJECT rule in INPUT section!->check with: sudo iptables -L -v -n)</i><br>
 <br>
-<u>Pi-Hole extra blocklists:</u><br>
+<u>Pi-hole extra blocklists:</u><br>
 from https://blog.burstbytes.com.au/best-2026-pi-hole-blocklists-and-how-to-install-them/#How_to_install_a_Pi-hole_blocklist:<br>
 - https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/multi.txt<br>
 - https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/popupads.txt<br>

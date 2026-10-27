@@ -68,11 +68,15 @@ Import this file into the WireGuard windows application
 <br>
 <br>
 <h2>Step 4: Install Netdata (Real-Time Server Performance Monitoring)</h2>
-## Netdata provides an incredible, low-overhead real-time monitoring dashboard that will give you instant visibility into your network traffic<br>
+<i>Netdata provides an incredible, low-overhead real-time monitoring dashboard that will give you instant visibility into your network traffic</i><br>
+<br>
+sudo wget -O /tmp/netdata-kickstart.sh https://get.netdata.cloud/kickstart.sh && sh /tmp/netdata-kickstart.sh<br>
 sudo iptables -I INPUT 8 -i wg0 -p tcp --dport 19999 -j ACCEPT (NOTE: must be above REJECT rule in INPUT section! -> check with: sudo iptables -L -v -n)<br>
 <br>
 <br>
 <h2>Step 5: Install n8n (Workflow Automation)</h2>
+<i>n8n is a visual, node-based workflow automation platform that connects different apps, APIs, and AI agents so they can exchange data and run tasks automatically.</i><br>
+<br>
 mkdir -p ~/n8n<br>
 cd ~/n8n<br>
 nano docker-compose.yml<br>
@@ -85,5 +89,6 @@ docker compose up -d (Start the service using Docker Compose)<br>
 docker ps (Verify that n8n is running properly)<br>
 sudo iptables -I INPUT 8 -i wg0 -p tcp --dport 5678 -j ACCEPT (NOTE: must be above REJECT rule in INPUT section! -> check with: sudo iptables -L -v -n)<br>
 sudo netfilter-persistent save (Make your iptables rules persistent across reboots)<br>
-## docker compose down && docker compose up -d (if needed: This will gracefully shut down the container and spin it right back up with a clean restart)<br>
+<br>
+<i>docker compose down && docker compose up -d (if needed: This will gracefully shut down the container and spin it right back up with a clean restart)</i><br>
 

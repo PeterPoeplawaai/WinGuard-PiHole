@@ -4,9 +4,10 @@ This runs completely free of charge on an Ubuntu instance on Oracle Cloud Free T
 
 The webpages for PiHole, Netdata and n8n are only reachable on connected VPN clients!
 
-Here we go....
 
-__# Update Ubuntu first!__
+
+
+**# Update Ubuntu first!**
 sudo apt update && sudo apt upgrade -y
 
 

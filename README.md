@@ -8,8 +8,8 @@ The webpages for PiHole, Netdata and n8n are only reachable on connected VPN cli
 <br>
 <h1>Update Ubuntu first!</h1>
 sudo apt update && sudo apt upgrade -y
-
-
+<br>
+<br>
 <h1>Step 1: Add Internal Ubuntu Firewall Rule (NOTE: open this port in Oracle Cloud security list too!)</h1>
 sudo iptables -I INPUT 2 -p udp --dport 51820 -j ACCEPT<br>
 sudo netfilter-persistent save (Make your iptables rules persistent across reboots)<br>

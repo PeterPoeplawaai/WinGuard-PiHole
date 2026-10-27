@@ -19,7 +19,7 @@ sudo netfilter-persistent save (Make your iptables rules persistent across reboo
 <i>Install Pi-hole first so PiVPN can pick it up automatically while installing in step 3!</i><br>
 <br>
 sudo curl -sSL https://install.pi-hole.net | bash<br>
-Follow steps in wizard(br>
+Follow steps in wizard<br>
 <br>
 Make Pi-Hole admin page reachable for connected VPN clients:<br>
 sudo iptables -I INPUT 3 -i wg0 -p tcp --dport 80 -j ACCEPT <i>(NOTE:must be above REJECT rule in INPUT section!->check with: sudo iptables -L -v -n)</i><br>

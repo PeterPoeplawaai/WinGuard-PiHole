@@ -51,7 +51,7 @@ from ex-colleague Paulus1337 (thanks Paul! ;-)):<br>
 - https://raw.githubusercontent.com/dashingdon/blocklists/refs/heads/master/pihole_addonblacklist.txt<br>
 <br>
 <br>
-<h2>Step 3: Install WireGuard with PiVPN (Debian/Ubuntu only!!)</h2>
+<h2>Step 3: Install WireGuard with PiVPN</h2>
   <i>or WG-Easy (=WireGuard + management GUI with Docker (not covered here))</i><br>
 <br>
 sudo curl -L https://install.pivpn.io | bash<br>

@@ -19,10 +19,12 @@ sudo netfilter-persistent save (Make your iptables rules persistent across reboo
 <i>Install Pi-hole first so PiVPN can pick it up automatically while installing in step 3!</i><br>
 <br>
 sudo curl -sSL https://install.pi-hole.net | bash<br>
+Follow steps in wizard(br>
 <br>
 Make Pi-Hole admin page reachable for connected VPN clients:<br>
 sudo iptables -I INPUT 3 -i wg0 -p tcp --dport 80 -j ACCEPT <i>(NOTE:must be above REJECT rule in INPUT section!->check with: sudo iptables -L -v -n)</i><br>
 sudo iptables -I INPUT 4 -i wg0 -p tcp --dport 443 -j ACCEPT <i>(NOTE:must be above REJECT rule in INPUT section!->check with: sudo iptables -L -v -n)</i><br>
+sudo netfilter-persistent save (Make your iptables rules persistent across reboots)<br>
 <br>
 <u>Pi-hole extra blocklists:</u><br>
 from https://blog.burstbytes.com.au/best-2026-pi-hole-blocklists-and-how-to-install-them/#How_to_install_a_Pi-hole_blocklist:<br>
@@ -75,6 +77,7 @@ Import this file into the WireGuard windows application
 <br>
 sudo wget -O /tmp/netdata-kickstart.sh https://get.netdata.cloud/kickstart.sh && sh /tmp/netdata-kickstart.sh<br>
 sudo iptables -I INPUT 5 -i wg0 -p tcp --dport 19999 -j ACCEPT <i>(NOTE:must be above REJECT rule in INPUT section!->check with: sudo iptables -L -v -n)</i><br>
+sudo netfilter-persistent save (Make your iptables rules persistent across reboots)<br>
 <br>
 <br>
 <h2>Step 5: Install n8n (Workflow Automation)</h2>

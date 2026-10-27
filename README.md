@@ -7,16 +7,16 @@ The webpages for PiHole, Netdata and n8n are only reachable on connected VPN cli
 
 
 
-__Update Ubuntu first!__
+<h1>Update Ubuntu first!</h1>
 sudo apt update && sudo apt upgrade -y
 
 
-**Step 1: Add Internal Ubuntu Firewall Rule (NOTE: open this port in Oracle Cloud security list too!)**
+<h1>Step 1: Add Internal Ubuntu Firewall Rule (NOTE: open this port in Oracle Cloud security list too!)</h1>
 sudo iptables -I INPUT 2 -p udp --dport 51820 -j ACCEPT
 sudo netfilter-persistent save (Make your iptables rules persistent across reboots)
 
 
-**Step 2: Install Pi-Hole**
+<h1>Step 2: Install Pi-Hole</h1>
 sudo curl -sSL https://install.pi-hole.net | bash
 Make Pi-Hole admin page reachable for connected VPN clients:
 sudo iptables -I INPUT 8 -i wg0 -p tcp --dport 80 -j ACCEPT (NOTE: must be above REJECT rule in INPUT section! -> check with: sudo iptables -L -v -n)
@@ -50,7 +50,8 @@ https://big.oisd.nl
 https://raw.githubusercontent.com/dashingdon/blocklists/refs/heads/master/pihole_addonblacklist.txt
 
 
-Step 3: Install WireGuard with PiVPN (Debian/Ubuntu only!!) ((or WG-Easy (=WireGuard + management GUI met Docker)???)
+<h1>Step 3: Install WireGuard with PiVPN (Debian/Ubuntu only!!)</h1>
+  <h2>(or WG-Easy (=WireGuard + management GUI met Docker))</h2>
 sudo curl -L https://install.pivpn.io | bash
 Follow steps in wizard (choose WireGaurd instead of OpenVPN!)
 Now run 'pivpn add' to create the client profiles
@@ -69,12 +70,12 @@ Paste the text into Notepad.
 Save the file as wg0.conf
 
 
-Step 4: Install Netdata (Real-Time Server Performance Monitoring)
+<h1>Step 4: Install Netdata (Real-Time Server Performance Monitoring)</h1>
 ## Netdata provides an incredible, low-overhead real-time monitoring dashboard that will give you instant visibility into your network traffic
 sudo iptables -I INPUT 8 -i wg0 -p tcp --dport 19999 -j ACCEPT (NOTE: must be above REJECT rule in INPUT section! -> check with: sudo iptables -L -v -n)
 
 
-Step 5: Install n8n (Workflow Automation)
+<h1>Step 5: Install n8n (Workflow Automation)</h1>
 mkdir -p ~/n8n
 cd ~/n8n
 nano docker-compose.yml

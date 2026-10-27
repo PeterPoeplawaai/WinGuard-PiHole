@@ -2,7 +2,7 @@ How to setup WireGuard with Pi-hole and Netdata for statistics (and n8n as a bon
 
 This runs completely free of charge on an Ubuntu 24.04 instance on Oracle Cloud Free Tier (shape VM.Standard.A1.Flex: 1 OCPU ; 6 GB memory ; 10 TB p/m free outbound internet traffic)
 
-The webpages for PiHole, Netdata and n8n are only reachable on connected VPN clients!
+The webpages for Pi-hole, Netdata and n8n are only reachable on connected VPN clients!
 <br>
 <br>
 <br>

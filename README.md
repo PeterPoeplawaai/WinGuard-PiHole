@@ -45,7 +45,7 @@ from ex-colleague Paulus1337 (thanks Paul! ;-)):<br>
 <br>
 <br>
 <h2>Step 3: Install WireGuard with PiVPN (Debian/Ubuntu only!!)</h2>
-  <h4>or WG-Easy (=WireGuard + management GUI with Docker (not covered here)</h4>
+  <h4>or WG-Easy (=WireGuard + management GUI with Docker (not covered here))</h4>
 <br>
 sudo curl -L https://install.pivpn.io | bash<br>
 Follow steps in wizard (choose WireGaurd instead of OpenVPN!)<br>

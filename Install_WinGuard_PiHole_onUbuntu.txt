@@ -28,7 +28,7 @@ https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/fake.txt
 # from https://github.com/zachlagden/Pi-hole-Optimized-Blocklists:
 https://media.githubusercontent.com/media/zachlagden/Pi-hole-Optimized-Blocklists/main/lists/all_domains.txt
 
-# from ex-colleague Paulus1337:
+# from ex-colleague Paulus1337 (thanks Paul! ;-)):
 https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
 http://sysctl.org/cameleon/hosts
 https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt

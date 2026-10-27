@@ -55,7 +55,6 @@ from ex-colleague Paulus1337 (thanks Paul! ;-)):<br>
 sudo curl -L https://install.pivpn.io | bash<br>
 Follow steps in wizard (choose WireGaurd instead of OpenVPN!)<br>
 Now run 'pivpn add' to create the client profiles<br>
-Run 'pivpn help' to see what else you can do!<br>
 <br>
 <u>Profile for iPhone example:</u><br>
 pivpn add iphone-vpn<br>

@@ -10,7 +10,9 @@ The webpages for Pi-hole, Netdata and n8n are only reachable on connected VPN cl
 sudo apt update && sudo apt upgrade -y
 <br>
 <br>
-<h2>Step 1: Add Ubuntu Firewall Rule (NOTE: open this port in Oracle Cloud security list too!)</h2>
+<h2>Step 1: Add Ubuntu Firewall Rule for WireGuard internet access</h2>
+  <i>NOTE: open this port in Oracle Cloud security list too!</i><br>
+  <br>
 sudo iptables -I INPUT 2 -p udp --dport 51820 -j ACCEPT<br>
 sudo netfilter-persistent save (Make your iptables rules persistent across reboots)<br>
 <br>
@@ -22,8 +24,8 @@ sudo curl -sSL https://install.pi-hole.net | bash<br>
 Follow steps in wizard<br>
 <br>
 Make Pi-Hole admin page reachable for connected VPN clients:<br>
-sudo iptables -I INPUT 3 -i wg0 -p tcp --dport 80 -j ACCEPT <i>(NOTE:must be above REJECT rule in INPUT section!->check with: sudo iptables -L -v -n)</i><br>
-sudo iptables -I INPUT 4 -i wg0 -p tcp --dport 443 -j ACCEPT <i>(NOTE:must be above REJECT rule in INPUT section!->check with: sudo iptables -L -v -n)</i><br>
+sudo iptables -I INPUT 3 -i wg0 -p tcp --dport 80 -j ACCEPT <i>(NOTE: must be above REJECT rule in INPUT section!->check with: sudo iptables -L -v -n)</i><br>
+sudo iptables -I INPUT 4 -i wg0 -p tcp --dport 443 -j ACCEPT <i>(NOTE: must be above REJECT rule in INPUT section!->check with: sudo iptables -L -v -n)</i><br>
 sudo netfilter-persistent save (Make your iptables rules persistent across reboots)<br>
 <br>
 <u>Pi-hole extra blocklists:</u><br>
@@ -75,7 +77,7 @@ Import this file into the WireGuard windows application
 <i>Netdata provides an incredible, low-overhead real-time monitoring dashboard that will give you instant visibility into your network traffic</i><br>
 <br>
 sudo wget -O /tmp/netdata-kickstart.sh https://get.netdata.cloud/kickstart.sh && sh /tmp/netdata-kickstart.sh<br>
-sudo iptables -I INPUT 5 -i wg0 -p tcp --dport 19999 -j ACCEPT <i>(NOTE:must be above REJECT rule in INPUT section!->check with: sudo iptables -L -v -n)</i><br>
+sudo iptables -I INPUT 5 -i wg0 -p tcp --dport 19999 -j ACCEPT <i>(NOTE: must be above REJECT rule in INPUT section!->check with: sudo iptables -L -v -n)</i><br>
 sudo netfilter-persistent save (Make your iptables rules persistent across reboots)<br>
 <br>
 <br>
@@ -92,7 +94,7 @@ sudo usermod -aG docker $USER (Allow the ubuntu user to run Docker without sudo)
 newgrp docker (Allow the ubuntu user to run Docker without sudo)<br>
 docker compose up -d (Start the service using Docker Compose)<br>
 docker ps (Verify that n8n is running properly)<br>
-sudo iptables -I INPUT 6 -i wg0 -p tcp --dport 5678 -j ACCEPT <i>(NOTE:must be above REJECT rule in INPUT section!->check with: sudo iptables -L -v -n)</i><br>
+sudo iptables -I INPUT 6 -i wg0 -p tcp --dport 5678 -j ACCEPT <i>(NOTE: must be above REJECT rule in INPUT section!->check with: sudo iptables -L -v -n)</i><br>
 sudo netfilter-persistent save (Make your iptables rules persistent across reboots)<br>
 <br>
 <i>docker compose down && docker compose up -d (if needed: This will gracefully shut down the container and spin it right back up with a clean restart)</i><br>

@@ -6,25 +6,20 @@ The webpages for PiHole, Netdata and n8n are only reachable on connected VPN cli
 <br>
 <br>
 <br>
-<h1>Update Ubuntu first!</h1>
+<h2>Update Ubuntu first!</h2>
 sudo apt update && sudo apt upgrade -y
 <br>
 <br>
-<h1>Step 1: Add Internal Ubuntu Firewall Rule (NOTE: open this port in Oracle Cloud security list too!)</h1>
+<h2>Step 1: Add Ubuntu Firewall Rule (NOTE: open this port in Oracle Cloud security list too!)</h2>
 sudo iptables -I INPUT 2 -p udp --dport 51820 -j ACCEPT<br>
 sudo netfilter-persistent save (Make your iptables rules persistent across reboots)<br>
 <br>
 <br>
-<h1>Step 2: Install Pi-Hole</h1>
+<h2>Step 2: Install Pi-Hole</h2>
 sudo curl -sSL https://install.pi-hole.net | bash<br>
 Make Pi-Hole admin page reachable for connected VPN clients:<br>
 sudo iptables -I INPUT 8 -i wg0 -p tcp --dport 80 -j ACCEPT (NOTE: must be above REJECT rule in INPUT section! -> check with: sudo iptables -L -v -n)<br>
 sudo iptables -I INPUT 8 -i wg0 -p tcp --dport 443 -j ACCEPT (NOTE: must be above REJECT rule in INPUT section! -> check with: sudo iptables -L -v -n)<br>
-<br>
-<u>Pi-Hole handy CLI commands:</u><br>
-- sudo pihole enable<br>
-- sudo pihole -g (of pihole -up) = update pi-hole and blacklists<br>
-- sudo pihole -t = live logs<br>
 <br>
 <u>Pi-Hole extra blocklists:</u><br>
 from https://blog.burstbytes.com.au/best-2026-pi-hole-blocklists-and-how-to-install-them/#How_to_install_a_Pi-hole_blocklist:<br>
@@ -49,8 +44,9 @@ from ex-colleague Paulus1337 (thanks Paul! ;-)):<br>
 - https://raw.githubusercontent.com/dashingdon/blocklists/refs/heads/master/pihole_addonblacklist.txt<br>
 <br>
 <br>
-<h1>Step 3: Install WireGuard with PiVPN (Debian/Ubuntu only!!)</h1>
-  <h3>or WG-Easy (=WireGuard + management GUI with Docker</h3>
+<h2>Step 3: Install WireGuard with PiVPN (Debian/Ubuntu only!!)</h2>
+  <h4>or WG-Easy (=WireGuard + management GUI with Docker (not covered here)</h4>
+<br>
 sudo curl -L https://install.pivpn.io | bash<br>
 Follow steps in wizard (choose WireGaurd instead of OpenVPN!)<br>
 Now run 'pivpn add' to create the client profiles<br>
@@ -70,12 +66,12 @@ Save the file as wg0.conf<br>
 Import this file into the WireGuard windows application
 <br>
 <br>
-<h1>Step 4: Install Netdata (Real-Time Server Performance Monitoring)</h1>
+<h2>Step 4: Install Netdata (Real-Time Server Performance Monitoring)</h2>
 ## Netdata provides an incredible, low-overhead real-time monitoring dashboard that will give you instant visibility into your network traffic<br>
 sudo iptables -I INPUT 8 -i wg0 -p tcp --dport 19999 -j ACCEPT (NOTE: must be above REJECT rule in INPUT section! -> check with: sudo iptables -L -v -n)<br>
 <br>
 <br>
-<h1>Step 5: Install n8n (Workflow Automation)</h1>
+<h2>Step 5: Install n8n (Workflow Automation)</h2>
 mkdir -p ~/n8n<br>
 cd ~/n8n<br>
 nano docker-compose.yml<br>

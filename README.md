@@ -7,7 +7,7 @@ The webpages for PiHole, Netdata and n8n are only reachable on connected VPN cli
 
 
 
-**Update Ubuntu first!**
+__Update Ubuntu first!__
 sudo apt update && sudo apt upgrade -y
 
 

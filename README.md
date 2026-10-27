@@ -23,31 +23,31 @@ sudo iptables -I INPUT 8 -i wg0 -p tcp --dport 80 -j ACCEPT (NOTE: must be above
 sudo iptables -I INPUT 8 -i wg0 -p tcp --dport 443 -j ACCEPT (NOTE: must be above REJECT rule in INPUT section! -> check with: sudo iptables -L -v -n)<br>
 <br>
 <u>Pi-Hole handy CLI commands:</u><br>
-sudo pihole enable<br>
-sudo pihole -g (of pihole -up) = update pi-hole and blacklists<br>
-sudo pihole -t = live logs<br>
+- sudo pihole enable<br>
+- sudo pihole -g (of pihole -up) = update pi-hole and blacklists<br>
+- sudo pihole -t = live logs<br>
 <br>
 <u>Pi-Hole extra blocklists:</u><br>
 from https://blog.burstbytes.com.au/best-2026-pi-hole-blocklists-and-how-to-install-them/#How_to_install_a_Pi-hole_blocklist:<br>
-https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/multi.txt<br>
-https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/popupads.txt<br>
-https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/tif.txt<br>
-https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/fake.txt<br>
+- https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/multi.txt<br>
+- https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/popupads.txt<br>
+- https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/tif.txt<br>
+- https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/fake.txt<br>
 <br>
 from https://github.com/zachlagden/Pi-hole-Optimized-Blocklists:<br>
-https://media.githubusercontent.com/media/zachlagden/Pi-hole-Optimized-Blocklists/main/lists/all_domains.txt<br>
+- https://media.githubusercontent.com/media/zachlagden/Pi-hole-Optimized-Blocklists/main/lists/all_domains.txt<br>
 <br>
 from ex-colleague Paulus1337 (thanks Paul! ;-)):<br>
-https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts<br>
-http://sysctl.org/cameleon/hosts<br>
-https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt<br>
-https://justdomains.github.io/blocklists/lists/easylist-justdomains.txt<br>
-https://justdomains.github.io/blocklists/lists/easyprivacy-justdomains.txt<br>
-https://justdomains.github.io/blocklists/lists/adguarddns-justdomains.txt<br>
-https://justdomains.github.io/blocklists/lists/nocoin-justdomains.txt<br>
-https://nsfw.oisd.nl<br>
-https://big.oisd.nl<br>
-https://raw.githubusercontent.com/dashingdon/blocklists/refs/heads/master/pihole_addonblacklist.txt<br>
+- https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts<br>
+- http://sysctl.org/cameleon/hosts<br>
+- https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt<br>
+- https://justdomains.github.io/blocklists/lists/easylist-justdomains.txt<br>
+- https://justdomains.github.io/blocklists/lists/easyprivacy-justdomains.txt<br>
+- https://justdomains.github.io/blocklists/lists/adguarddns-justdomains.txt<br>
+- https://justdomains.github.io/blocklists/lists/nocoin-justdomains.txt<br>
+- https://nsfw.oisd.nl<br>
+- https://big.oisd.nl<br>
+- https://raw.githubusercontent.com/dashingdon/blocklists/refs/heads/master/pihole_addonblacklist.txt<br>
 <br>
 <br>
 <h1>Step 3: Install WireGuard with PiVPN (Debian/Ubuntu only!!)</h1>

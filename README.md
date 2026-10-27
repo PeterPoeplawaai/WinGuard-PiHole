@@ -1,6 +1,6 @@
 How to setup WireGuard with PiHole and Netdata for statistics (and n8n as a bonus :))
 
-This runs completely free of charge on an Ubuntu instance on Oracle Cloud Free Tier: 1 OCPU ; 6 GB memory ; 10 TB p/m free outbound internet traffic.
+This runs completely free of charge on an Ubuntu 24.04 instance on Oracle Cloud Free Tier (shape VM.Standard.A1.Flex: 1 OCPU ; 6 GB memory ; 10 TB p/m free outbound internet traffic)
 
 The webpages for PiHole, Netdata and n8n are only reachable on connected VPN clients!
 <br>
@@ -63,10 +63,11 @@ pivpn -qr iphone-vpn<br>
 <u>Profile for laptop</u><br>
 pivpn add<br>
 cat ~/configs/laptop-vpn.conf<br>
-Highlight and copy the entire output text from the terminal (starting from [Interface] down to the last line).<br>
-On your Windows laptop, open Notepad (or any text editor).<br>
+Highlight and copy the entire output text from the terminal (starting from [Interface] down to the last line)<br>
+On your Windows laptop, open Notepad (or any text editor)<br>
 Paste the text into Notepad.<br>
 Save the file as wg0.conf<br>
+Import this file into the WireGuard windows application
 <br>
 <br>
 <h1>Step 4: Install Netdata (Real-Time Server Performance Monitoring)</h1>

@@ -98,4 +98,28 @@ sudo iptables -I INPUT 6 -i wg0 -p tcp --dport 5678 -j ACCEPT <i>(NOTE: must be 
 sudo netfilter-persistent save (Make your iptables rules persistent across reboots)<br>
 <br>
 <i>docker compose down && docker compose up -d (if needed: This will gracefully shut down the container and spin it right back up with a clean restart)</i><br>
+<br>
+<br>
+<h2>The results</h2>
+<br>
+<i>Pi-hole</i>
+<br>
+<br>
+<p align="left">
+  <img src="dashboard-pihole.png" alt="Pi-hole Dashboard" width="600" />
+</p>
+<br>
+<i>Netdata</i>
+<br>
+<br>
+<p align="left">
+  <img src="dashboard-netdata.png" alt="Netdata Dashboard" width="600" />
+</p>
+<br>
+<i>n8n</i>
+<br>
+<br>
+<p align="left">
+  <img src="dashboard-n8n.png" alt="n8n Dashboard" width="600" />
+</p>
 

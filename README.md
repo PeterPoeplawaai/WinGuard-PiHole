@@ -9,7 +9,6 @@ This runs completely free of charge on an Ubuntu 24.04 instance on Oracle Cloud 
 The webpages for Pi-hole, Netdata and n8n are only reachable on connected VPN clients!
 <br>
 <br>
-<br>
 <h2>Update Ubuntu first!</h2>
 sudo apt update && sudo apt upgrade -y
 <br>

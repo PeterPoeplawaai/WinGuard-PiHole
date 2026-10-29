@@ -109,20 +109,24 @@ sudo netfilter-persistent save (Make your iptables rules persistent across reboo
 <br>
 <br>
 <p align="left">
-  <img src="dashboard-pihole.png" alt="Pi-hole Dashboard" width="600" />
+  <img src="dashboard-pihole.png" alt="Pi-hole Dashboard" width="800" />
 </p>
 <br>
 <i>Netdata</i>
 <br>
 <br>
 <p align="left">
-  <img src="dashboard-netdata.png" alt="Netdata Dashboard" width="600" />
+  <img src="dashboard-netdata.png" alt="Netdata Dashboard" width="800" />
 </p>
 <br>
 <i>n8n</i>
 <br>
 <br>
 <p align="left">
-  <img src="dashboard-n8n.png" alt="n8n Dashboard" width="600" />
+  <img src="dashboard-n8n.png" alt="n8n Dashboard" width="800" />
+</p>
+<br>
+<p align="left">
+  <img src="dashboard-n8n-2.png" alt="n8n Dashboard" width="800" />
 </p>
 

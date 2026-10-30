@@ -90,7 +90,7 @@ sudo netfilter-persistent save (Make your iptables rules persistent across reboo
 mkdir -p ~/n8n<br>
 cd ~/n8n<br>
 nano docker-compose.yml<br>
-Paste the code and save <i>(NOTE:put N8N_SECURE_COOKIE=false in yml to be able to access site over http)</i><br>
+Paste the code and save <i>(NOTE: put N8N_SECURE_COOKIE=false in yml to be able to access site over http)</i><br>
 sudo apt install -y docker.io docker-compose-v2 (Install Docker and Docker Compose plugin)<br>
 sudo systemctl enable --now docker (Start and enable Docker service)<br>
 sudo usermod -aG docker $USER (Allow the ubuntu user to run Docker without sudo)<br>

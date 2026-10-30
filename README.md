@@ -6,6 +6,8 @@ How to setup WireGuard with Pi-hole and Netdata for statistics (and n8n as a bon
 <br>
 This runs completely free of charge on an Ubuntu 24.04 instance on Oracle Cloud Free Tier (shape VM.Standard.A1.Flex: 1 OCPU ; 6 GB memory ; 10 TB p/m free outbound internet traffic).<br> Apart from the defaults while creating an instance, choose the correct image (Ubuntu 24.04), manually assign a private IPv4 address (i.e. 10.0.0.10, depending on your chosen subnet) and enable public IPv4 address assignment. Don't forget to download your private SSH key, because it's your only change to do so!!! When your instance is running, you can connect to it with Putty (ubuntu@public_ip). Convert your private key with PuttyGen to a ppk format and use this file to connect to your instance.<br>
 <br>
+<i>NOTE: Oracle Cloud officially updated the limits for the Always Free Ampere A1 allocation. Current Limit: 2 OCPUs and 12 GB RAM (1,500 OCPU hours and 9,000 GB hours per month).</i><br>
+<br>
 The webpages for Pi-hole, Netdata and n8n are only reachable on connected VPN clients!
 <br>
 <br>
